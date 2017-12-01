@@ -1,0 +1,14 @@
+[Unit]
+Description=Web API for information on DDD
+
+[Service]
+WorkingDirectory=/opt/ddd-api/
+ExecStart=/usr/bin/dotnet /opt/ddd-api/ddd-api.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=dotnet-app
+#User=www-data
+Environment=ASPNETCORE_URLS=http://*:5000
+
+[Install]
+WantedBy=multi-user.target
